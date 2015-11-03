@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.get('/contactlist',function(req,res){
 	console.log('recved get reques');
 	
-	db.contactlist.find(function(err,docs){
+	db.contactlist.find().sort({name: 1}, function (err, docs) {
 		//console.log(docs);
 		res.json(docs);
 	});
@@ -53,6 +53,6 @@ app.put('/contactlist/:id',function(req,res){
 	});	
 });
 
-app.listen(3000);
+app.listen(8080);
 
-console.log('server running on port 3000');
+console.log('server running on port 8080');
